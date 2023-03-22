@@ -26,7 +26,7 @@ sudo make install
 12. Exit with `exit`, stop your instance with `multipass stop singularity`
 
 ## Infos / Utilities
-- show current information using `multipass info singularity`
+- show current information using `multipass info singularity` or `multipass info --all`
 - unmount directories using `multipass unmount singularity`
 
 ## Remove
