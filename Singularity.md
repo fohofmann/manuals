@@ -7,7 +7,7 @@ Follow these instructions to run singularity on macOS Ventura @arm64. Solutions 
 4. Stop your instance: `multipass stop singularity`
 5. More power to your instance: `multipass set local.singularity.cpus=4`, `multipass set local.singularity.disk=20G`, `multipass set local.singularity.memory=10G`. This can also be adapted later on (only after stopping your instance), and should depend on your host system. I would not exceed 50% of the host system. If you want to check your current settings use `multipass get local.singularity.cpus` / `.disk` / `.memory`
 6. Login to your instance: `multipass shell singularity`. It takes some seconds, but you should then get some information regarding your instance and the system information.
-7. To install singularity, you need a C compiler on your instance. Thus, first update the package index @vm:`sudo apt-get update`. Sedond install essentials `sudo apt install build-essential`.
+7. To install singularity, you need a C compiler on your instance. Thus, first update the package index:`sudo apt-get update`. Second install essentials `sudo apt install build-essential`.
 8. Check whether you got it: `gcc --version` should print something line "gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
 9. Follow the instructions above. For me worked:
 ```shell
