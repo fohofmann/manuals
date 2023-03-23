@@ -24,8 +24,8 @@ sudo apt-get update && \
 ``` shell
 curl -LO https://go.dev/dl/go1.20.2.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && \
-   sudo tar -C /usr/local -xzf go1.20.2.linux-amd4.tar.gz
-rm go1.20.2.linux-amd4.tar.gz
+   sudo tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
+rm go1.20.2.linux-amd64.tar.gz
 ```
 7. Make sure that the go binaries are present in bash’s PATH
 ``` shell
