@@ -49,12 +49,16 @@ cd singularity-ce-3.11.1
 11. Make sure singularity was installed successfully: `singularity --version` should print sth like `singularity-ce version 3.11.1`
 12. Mount the folder you specified in UTM to your VM: Therefore, first create a new directory `mkdir <shared-folder>`.
 13. Second, mount the directory `sudo mount -t 9p -o trans=virtio share <shared-folder> -oversion=9p2000.L`.
-14. Third - to mount the directory at startup - modify the `/etc/fstab` file with `sudo nano` and add `share	<shared-folder>	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0` to the file. Save your changes.
-15. To shutdown your VM: `shutdown -h now`.
+14. Third - to mount the directory at startup - modify the `/etc/fstab` file with `sudo nano` by adding:
+```shell
+share	<shared-folder>	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0
+```
+15. To test your singularity installation, run `singularity run library://lolcow`
+16. To shutdown your VM: `shutdown -h now`.
 
 ## Notes
-- I had some trouble regarding the inputs. For the tilde ~, I had to press shift + option_left + #.
+- I had some trouble regarding the inputs from the keyboard. For the tilde ~, I had to press shift + option_left + #.
 
 ## References
-https://sylabs.io/2023/03/installing-singularityce-on-macos-with-apple-silicon-using-utm/
-https://sylabs.io/2023/03/installing-singularityce-on-macos-with-apple-silicon-using-utm-rocky/
+- https://sylabs.io/2023/03/installing-singularityce-on-macos-with-apple-silicon-using-utm/
+- https://sylabs.io/2023/03/installing-singularityce-on-macos-with-apple-silicon-using-utm-rocky/
