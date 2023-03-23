@@ -10,7 +10,7 @@ Follow these instructions to run singularity on macOS Ventura @arm64. Solutions 
 7. Start your instance, and login: `multipass shell singularity`. It takes some seconds, but you should then get some information regarding your instance and the system information.
 8. To install singularity, you need a C compiler on your instance. Thus, first update the package index:`sudo apt-get update`. Second install essentials `sudo apt install build-essential`.
 9. Check whether you got it: `gcc --version` should print something line "gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
-10. Follow the instructions above. For me worked:
+10. Install singularity. For me worked:
 ```shell
 git clone https://github.com/sylabs/singularity.git
 cd singularity
