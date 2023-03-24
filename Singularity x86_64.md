@@ -56,6 +56,13 @@ share	<shared-folder>	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0
 15. To test your singularity installation, run `singularity run library://lolcow`
 16. To shutdown your VM: `shutdown -h now`.
 
+## SSH to VM
+You can set up a ssh-connection to your VM from your host machine. This might be more convenient, than using the terminal in the emulated environment itself.
+1. Check whether ssh is installed and running at your VM: `sudo systemctl status ssh`
+2. Get the IP-adress of your VM: `ip-4 addr`. After enp0s1 ... inet your VMs IP is shown.
+3. Connect from your host machine to your VM server using ssh <username>@<vm-ip-adress>.
+4. Exchange keys, save password to keychain etc.
+
 ## Notes
 - I had some trouble regarding the inputs from the keyboard. For the tilde ~, I had to press shift + option_left + #.
 
