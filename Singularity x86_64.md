@@ -62,9 +62,9 @@ You can set up a ssh-connection to your VM from your host machine. This might be
 2. Get the IP-adress of your VM: `ip -4 addr`. After enp0s1 ... inet your VMs IP is shown.
 3. Connect from your host machine to your VM server using ssh <username>@<vm-ip-adress>, or exchange keys, save password to keychain etc.
 
-## Space
-Singularity is space intensive, especially during the building-process. During installation of ubuntu, not all the (virtual) storage is mounted to the ubuntu partition. Therefore, **if LVM was selected during installation**, extend it:
-1. show all partitions / drives using `sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL` or `fdisk -l`
+## Storage
+Singularity is storage intensive, especially during the building-process due to temporary files. During installation of ubuntu, not all the (virtual) storage is mounted to the ubuntu partition. Therefore, **if LVM was selected during installation**, extend it:
+1. show all partitions using `sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL` or `fdisk -l`
 2. identify the partition with ubuntu (e.g. *ubuntu--vg-ubuntu--lv*) and free storage. In my (and most) cases: `/dev/sda3`.
 3. start parted with `sudo parted`, and use `resizepart`
 4. indicate the partition you want to resize, in our case `3`
