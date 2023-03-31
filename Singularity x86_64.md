@@ -94,6 +94,7 @@ You can set up a ssh-connection to your VM from your host machine. This might be
 3. You can connect from your host to your VM using `ssh <username>@<vm-ip-adress>`
 
 Simplify your life by:
+
 4. Optionally: Add the VM fingerprint to your `.ssh/known_host` manually: At your VM, go to `etc/ssh`, open the **public** key of the encryption algorithm you are going to use, e.g. `ssh_host_ed25519_key.pub`. At your host, go to `.ssh/known_hosts` and add the new host as a new line `<vm-ip-adress> <encryption-algorithm> <public-key-from-vm>`.
 5. Create a new ssh-key at your host by `ssh-keygen -t ed25519`. I recommend to use a keyphrase and a specific name.
 6. Store the **public** key at the VM: `ssh-copy-id -i ~/.ssh/<public-key-file>.pub <username>@<vm-ip-adress>`. If you did not add the host manually, you have to accept its fingerprint.
@@ -108,7 +109,7 @@ Host vm_ubuntu
 If you want to store the keyphrase in the keychain of your mac, use  `  UseKeychain yes`.
 
 8. You can now connect from your host to your VM using `ssh vm_ubuntu`.
-9. Optional: Deactivate ssh-authentification by password on your vm. Short version: In `etc/ssh/sshd_config` replace `#PasswordAuthentication yes` by `PasswordAuthentication no`. If there are any `/etc/ssh/sshd_config.d/*.conf`, make sure to replace (if existing) `PasswordAuthentication yes` by `PasswordAuthentication no`. Restart ssh / your vm. `More information are [here](https://help.ubuntu.com/community/SSH/OpenSSH/Configuring).
+9. Optional: Deactivate ssh-authentification by password on your vm. Short version: In `etc/ssh/sshd_config` replace `#PasswordAuthentication yes` by `PasswordAuthentication no`. If there are any `/etc/ssh/sshd_config.d/*.conf`, make sure to replace (if existing) `PasswordAuthentication yes` by `PasswordAuthentication no`. Restart ssh / your vm. If you try to ssh to the VM without using your key-file, you should not even be asked for your password. More information are [here](https://help.ubuntu.com/community/SSH/OpenSSH/Configuring).
 
 ## Storage
 Singularity is storage intensive, especially during the building-process due to temporary files. During installation of ubuntu, not all the (virtual) storage is allocated. Therefore, **if LVM was selected during installation**, extend it:
