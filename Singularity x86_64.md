@@ -98,7 +98,8 @@ Simplify your life by:
 5. Create a new ssh-key at your host by `ssh-keygen -t ed25519`. I recommend to use a keyphrase and a specific name.
 6. Store the **public** key at the VM: `ssh-copy-id -i ~/.ssh/<public-key-file>.pub <username>@<vm-ip-adress>`. If you did not add the host manually, you have to accept its fingerprint.
 7. Add the VM to `.ssh/config` at your host, for instance:
-```Host vm_ubuntu
+```
+Host vm_ubuntu
   HostName <vm-ip-adress>
   User <username>
   IdentityFile ~/.ssh/<private-key-file>
