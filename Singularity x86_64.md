@@ -81,11 +81,12 @@ Independently from the option you chose, continue here:
 ## Mount shared folder
 You can mount the folder you specified as shared in UTM to your VM:
 1. Create a new directory, e.g. calles *shared-folder* `mkdir shared-folder`.
-2. Second, mount the directory `sudo mount -t 9p -o trans=virtio share ~/shared-folder -oversion=9p2000.L`.
-3. Third - to mount the directory at startup - modify the `/etc/fstab` file with `sudo nano` by adding:
+2. Mount the directory `sudo mount -t 9p -o trans=virtio share ~/shared-folder -oversion=9p2000.L`.
+3. To mount the directory at startup - modify the `/etc/fstab` file with `sudo nano` by adding:
 ```shell
-share	~/shared-folder	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0
+share	/home/<username>/shared-folder	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0
 ```
+4. Check your mounted drives using `df -h`.
 
 ## SSH to VM
 You can set up a ssh-connection to your VM from your host machine. This might be more convenient, than using the terminal in UMT.
