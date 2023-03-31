@@ -62,6 +62,19 @@ You can set up a ssh-connection to your VM from your host machine. This might be
 2. Get the IP-adress of your VM: `ip -4 addr`. After enp0s1 ... inet your VMs IP is shown.
 3. Connect from your host machine to your VM server using ssh <username>@<vm-ip-adress>, or exchange keys, save password to keychain etc.
 
+## Space
+Singularity is space intensive, especially during the building-process. During installation of ubuntu, not all the (virtual) storage is mounted to the ubuntu partition. Therefore, **if LVM was selected during installation**, extend it:
+1. show all partitions / drives using `sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL` or `fdisk -l`
+2. identify the partition with ubuntu (e.g. *ubuntu--vg-ubuntu--lv*) and free storage. In my (and most) cases: `/dev/sda3`.
+3. start parted with `sudo parted`, and use `resizepart`
+4. indicate the partition you want to resize, in our case `3`
+5. define the new size. If you want to add all free space to your partition, use `100%`
+6. Exit parted with `quit` or Ctrl+C
+7. Resize the partition with `pvresize`, e.g. `pvresize /dev/sda3`
+8. Extend the volume with `lvextend`, e.g. `lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv`
+9. Pass the changes to the filesystem with `resize2fs` , e.g. `resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv`
+10. Check the changes using the commands described at 1.
+   
 ## Notes
 - I had some trouble regarding the inputs from the keyboard. For the tilde ~, I had to press shift + option_left + #.
 
