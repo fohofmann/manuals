@@ -34,8 +34,13 @@ echo 'export PATH=/usr/local/go/bin:$PATH' >> ~/.bashrc && \
 ```
 8. Check whether go is ready to run: `go version` should print sth like `go version go1.20.2 linux/amd64`
 
-## Option 1: Install compiled version
+----------------
+## Install Singularity
+For the installation of singularity, you have 2 options:
+
+### Option A: compiled version
 For some environments / OS, sylabs provides compiled releases [here](https://github.com/sylabs/singularity/releases). If so you can try to install it directly, which will save you the compiling.
+
 9. Load compiled singularity files from [here](https://github.com/sylabs/singularity/releases). Make sure to use an appropriate version that matches your VM. In our case `singularity-ce_3.11.1-jammy_amd64.deb`.
 ``` shell
 curl -LO https://github.com/sylabs/singularity/releases/download/v3.11.1/singularity-ce_3.11.1-jammy_amd64.deb
@@ -46,8 +51,9 @@ sudo dpkg -i singularity-ce_3.11.1-jammy_amd64.deb
 ```
 *Note:* I faced an unspecific error during installation, but using `apt --fix-broken install` got rid of it.
 
-## Option 2: Install source
-Alternatively, and when you face problems using Option 1, you can load the source and compile it at your machine.
+### Option B: from source
+Alternatively, and when you face problems using Option A, you can load the source and compile it at your machine.
+
 9. Load compiled singularity files from [here](https://github.com/sylabs/singularity/releases). Make sure to use an appropriate version that matches your VM and HPC.
 ``` shell
 curl -LO https://github.com/sylabs/singularity/releases/download/v3.11.1/singularity-ce-3.11.1.tar.gz && \
@@ -62,7 +68,9 @@ cd singularity-ce-3.11.1
     sudo make -C builddir install
 ```
 
+----------------
 Independently from the option you chose, continue here:
+
 11. Make sure singularity was installed successfully: `singularity --version` should print sth like `singularity-ce version 3.11.1` or `3.11.1-jammy`
 12. Mount the folder you specified in UTM to your VM: Therefore, first create a new directory `mkdir <shared-folder>`.
 13. Second, mount the directory `sudo mount -t 9p -o trans=virtio share <shared-folder> -oversion=9p2000.L`.
