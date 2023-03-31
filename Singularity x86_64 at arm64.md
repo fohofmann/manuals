@@ -1,5 +1,5 @@
 # Singularity x86_64 @arm64
-For some reasons it might be necessary to emulate a x86_64 architecture. For instance, building a singularity file in sandbox-mode is usually not possible on the HPC-cluster directly. The problem with the multipass solution is, that its ubuntu is an arm64-adapted version. Thus, your container will either work on your local machine, or on the cluster. To overcome this, emulating the x86_64 is necessary (but comes with limited performance):
+For some reasons it might be necessary to emulate a x86_64 architecture. For instance, building a singularity file in sandbox-mode is usually not possible on the HPC-cluster directly. The problem with the multipass solution is, that its ubuntu is an arm64-adapted version. Thus, your container will either work on your local M1, or on the cluster. To overcome this, you could use [Singularity Enterprise](https://sylabs.io/2022/07/cross-architecture-containers-with-singularityce-pro/) or use the community edition and emulate a x86_64 environment (with limited performance):
 
 ## QUEMU and Linux
 1. We run the emulation using the open-source software QEMU. UTM is a much more comfortable solution based on QEMU to get started. Therefore, install UTM from https://mac.getutm.app.
