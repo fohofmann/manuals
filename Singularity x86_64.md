@@ -63,7 +63,7 @@ You can set up a ssh-connection to your VM from your host machine. This might be
 3. Connect from your host machine to your VM server using ssh <username>@<vm-ip-adress>, or exchange keys, save password to keychain etc.
 
 ## Storage
-Singularity is storage intensive, especially during the building-process due to temporary files. During installation of ubuntu, not all the (virtual) storage is mounted to the ubuntu partition. Therefore, **if LVM was selected during installation**, extend it:
+Singularity is storage intensive, especially during the building-process due to temporary files. During installation of ubuntu, not all the (virtual) storage is allocated. Therefore, **if LVM was selected during installation**, extend it:
 1. show all partitions using `sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL` or `fdisk -l`
 2. identify the partition with ubuntu (e.g. *ubuntu--vg-ubuntu--lv*) and free storage. In my (and most) cases: `/dev/sda3`.
 3. start parted with `sudo parted`, and use `resizepart`
