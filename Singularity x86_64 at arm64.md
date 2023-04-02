@@ -3,7 +3,12 @@ For some reasons it might be necessary to emulate a x86_64 architecture. For ins
 
 ## QUEMU and Linux
 1. We run the emulation using the open-source software QEMU. UTM is a much more comfortable solution based on QEMU to get started. Therefore, install UTM from https://mac.getutm.app.
-2. We need an image. The version and kind is up to you, just make sure to choose a AMD64 image. For testing, I used the Ubuntu 22.04.2 LTS (Jammy Jellyfish) 64-bit PC (AMD64) server install image (ubuntu-22.04.2-live-server-amd64.iso) from https://releases.ubuntu.com/jammy/. A good alternative might be the minimal x86_64 version of rocky linux https://rockylinux.org/download or alma linux https://mirrors.almalinux.org/isos.html (although, I am not sure about the compatibility of the package managers and installers when building your singularity file as rocky linux uses dnf as package manager).
+2. We need an image. The version and kind is up to you, just make sure to choose a AMD64 image. For testing, I used the 
+- Ubuntu 22.04.2 LTS (Jammy Jellyfish) 64-bit PC (AMD64) server install image (ubuntu-22.04.2-live-server-amd64.iso) from https://releases.ubuntu.com/jammy/
+- https://alpinelinux.org/downloads/
+- A good alternative might be the minimal x86_64 version of rocky linux https://rockylinux.org/download or
+- alma linux https://mirrors.almalinux.org/isos.html .
+
 3. Create a new VM using UTM: New VM -> Emulate -> Linux -> Select Image -> Select Memory and CPU -> Done.
 4. Install your distribution on your new VM. Make sure to select the \*.iso as drive, and to unmount it after completing the installation. Probably you will not need most of the packages, so make sure to keep your installation light. Start your VM.
 
